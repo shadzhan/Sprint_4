@@ -62,3 +62,9 @@ class TestBooksCollector:
         collector.add_new_book('Небылицы')
         collector.set_book_genre('Небылицы', 'Сказки')
         assert collector.get_books_for_children() == []
+
+    def test_get_books_for_children_with_age_limit(self):
+        collector = BooksCollector()
+        collector.add_new_book('Ужасная история')
+        collector.set_book_genre('Ужасная история', 'Ужасы')
+        assert collector.get_books_for_children() == []
