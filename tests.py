@@ -80,3 +80,9 @@ class TestBooksCollector:
         collector.add_new_book('Голова профессора Доуля')
         collector.add_book_in_favorites('Голова профессора Доуля')
         assert collector.get_list_of_favorites_books() == ['Голова профессора Доуля']
+
+    def test_add_book_in_favorites_same_books(self):
+        collector = BooksCollector()
+        collector.add_book_in_favorites('Голова профессора Доуля')
+        collector.add_book_in_favorites('Голова профессора Доуля')
+        assert collector.get_list_of_favorites_books() == []
