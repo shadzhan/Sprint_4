@@ -31,3 +31,9 @@ class TestBooksCollector:
         collector = BooksCollector()
         collector.set_book_genre('Домоводство', 'Фантастика')
         assert collector.get_book_genre('Домоводство') is None
+
+    def test_set_book_genre_incorrect_genre(self):
+        collector = BooksCollector()
+        collector.add_new_book('Пётр первый')
+        collector.set_book_genre('Пётр первый', 'Исторический роман')
+        assert collector.get_book_genre('Пётр первый') == ''
