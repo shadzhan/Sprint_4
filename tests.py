@@ -8,3 +8,9 @@ class TestBooksCollector:
         collector = BooksCollector()
         collector.add_new_book('Война и мир')
         assert len(collector.get_books_genre()) == 1
+
+    def test_add_new_book_add_similar_books(self):
+        collector = BooksCollector()
+        collector.add_new_book('Война и мир')
+        collector.add_new_book('Война и мир')
+        assert len(collector.get_books_genre()) == 1
