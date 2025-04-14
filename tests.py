@@ -2,8 +2,8 @@ import pytest
 
 from main import BooksCollector
 
-
 class TestBooksCollector:
+
     def test_add_new_book_add_one_book(self):
         collector = BooksCollector()
         collector.add_new_book('Война и мир')
@@ -26,6 +26,7 @@ class TestBooksCollector:
         collector.add_new_book('Восточный экспресс')
         collector.set_book_genre('Восточный экспресс', 'Детективы')
         assert collector.get_book_genre('Восточный экспресс') == 'Детективы'
+
 
     def test_set_book_genre_of_nonexisting_book(self):
         collector = BooksCollector()
