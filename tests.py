@@ -20,3 +20,10 @@ class TestBooksCollector:
         long_title = 'Закат Российской империи или новые приключения неуловимых мстителей'
         collector.add_new_book(long_title)
         assert len(collector.get_books_genre()) == 0
+
+    def test_set_book_genre_existing_book(self):
+        collector = BooksCollector()
+        collector.add_new_book('Восточный экспресс')
+        collector.set_book_genre('Восточный экспресс', 'Детективы')
+        assert collector.get_book_genre('Восточный экспресс') == 'Детективы'
+
