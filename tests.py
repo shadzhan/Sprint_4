@@ -86,3 +86,10 @@ class TestBooksCollector:
         collector.add_book_in_favorites('Голова профессора Доуля')
         collector.add_book_in_favorites('Голова профессора Доуля')
         assert collector.get_list_of_favorites_books() == []
+
+    def test_delete_book_from_favorites_existing_book(self):
+        collector = BooksCollector()
+        collector.add_new_book('Белая ночь')
+        collector.add_book_in_favorites('Белая ночь')
+        collector.delete_book_from_favorites('Белая ночь')
+        assert collector.get_list_of_favorites_books() == []
