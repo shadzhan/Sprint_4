@@ -93,3 +93,11 @@ class TestBooksCollector:
         collector.add_book_in_favorites('Белая ночь')
         collector.delete_book_from_favorites('Белая ночь')
         assert collector.get_list_of_favorites_books() == []
+
+    def test_get_list_of_favorites_books(self):
+        collector = BooksCollector()
+        collector.add_new_book('Зверобой')
+        collector.add_new_book('Последний из могикан')
+        collector.add_book_in_favorites('Зверобой')
+        collector.add_book_in_favorites('Последний из могикан')
+        assert collector.get_list_of_favorites_books() == ['Зверобой', 'Последний из могикан']
