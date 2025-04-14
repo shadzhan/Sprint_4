@@ -47,3 +47,11 @@ class TestBooksCollector:
     def test_get_book_genre_of_nonexisting_book(self):
         collector = BooksCollector()
         assert collector.get_book_genre('Забияка') is None
+
+    def test_get_books_with_specific_genre(self):
+        collector = BooksCollector()
+        collector.add_new_book('Мгла')
+        collector.add_new_book('Отчуждение')
+        collector.set_book_genre('Мгла', 'Ужасы')
+        collector.set_book_genre('Отчуждение', 'Ужасы')
+        assert collector.get_books_with_specific_genre('Ужасы') == ['Мгла', 'Отчуждение']
