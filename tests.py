@@ -31,22 +31,20 @@ class TestBooksCollector:
         assert collector.get_book_genre('Восточный экспресс') == 'Детективы'
 
 
-    def test_set_book_genre_of_nonexisting_book(self):
-        collector = BooksCollector()
+    def test_set_book_genre_of_nonexisting_book(self, collector):
         collector.set_book_genre('Домоводство', 'Фантастика')
         assert collector.get_book_genre('Домоводство') is None
 
-    def test_set_book_genre_incorrect_genre(self):
-        collector = BooksCollector()
+    def test_set_book_genre_incorrect_genre(self, collector):
         collector.add_new_book('Пётр первый')
         collector.set_book_genre('Пётр первый', 'Исторический роман')
         assert collector.get_book_genre('Пётр первый') == ''
 
-    def test_get_book_genre_existing_book(self):
-        collector = BooksCollector()
+    def test_get_book_genre_existing_book(self, collector):
         collector.add_new_book('Капитан Немо')
         collector.set_book_genre('Капитан Немо', 'Фантастика')
-        assert collector.get_book_genre('Капитан Немо') == 'Фантастика'
+        genre = collector.get_book_genre('Капитан Немо')
+        assert genre == 'Фантастика'
 
     def test_get_book_genre_of_nonexisting_book(self):
         collector = BooksCollector()
