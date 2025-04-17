@@ -12,23 +12,20 @@ class TestBooksCollector:
             ('Закат Российской империи или новые приключения неуловимых мстителей', False),
         ]
     )
-    def test_add_new_book(self, book_name, expected_result):
-        collector = BooksCollector()
+    def test_add_new_book(self, collector, book_name, expected_result):
         collector.add_new_book(book_name)
         assert (book_name in collector.books_genre) == expected_result
 
 
 
-    def test_add_new_book_add_similar_books(self):
-        collector = BooksCollector()
+    def test_add_new_book_add_similar_books(self, collector):
         collector.add_new_book('Война и мир')
         collector.add_new_book('Война и мир')
         assert len(collector.get_books_genre()) == 1
 
 
 
-    def test_set_book_genre_existing_book(self):
-        collector = BooksCollector()
+    def test_set_book_genre_existing_book(self, collector):
         collector.add_new_book('Восточный экспресс')
         collector.set_book_genre('Восточный экспресс', 'Детективы')
         assert collector.get_book_genre('Восточный экспресс') == 'Детективы'
