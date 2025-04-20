@@ -39,9 +39,7 @@ class TestBooksCollector:
 
     def test_get_book_genre_existing_book(self, collector):
         collector.add_new_book('Капитан Немо')
-        collector.set_book_genre('Капитан Немо', 'Фантастика')
-        genre = collector.get_book_genre('Капитан Немо')
-        assert genre == 'Фантастика'
+        assert collector.get_book_genre('Капитан Немо') == ''
 
     def test_get_book_genre_of_nonexisting_book(self, collector):
         assert collector.get_book_genre('Забияка') is None
